@@ -1,6 +1,7 @@
 .editor {
     position:absolute;
-    width:200px;
+    min-width:200px;
+    max-width: 300px;
     min-height: 200px;
     border: 1px solid blue;
 }

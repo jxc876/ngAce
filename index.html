@@ -7,7 +7,8 @@
 		<h1>Angular Demo</h1>
 
 		<div data-ng-controller="MainCtrl">
-			<p>Greeting: {{text}}</p>
+			text: <input type="text" data-ng-model="text" />
+			<p>text: {{text}}</p>
 
 			<div data-ace="" class="editor">This is *markdown*</div>
 		</div>

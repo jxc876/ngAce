@@ -7,10 +7,14 @@
 		<h1>Angular Demo</h1>
 
 		<div data-ng-controller="MainCtrl">
-			text: <input type="text" data-ng-model="text" />
-			<p>text: {{text}}</p>
+			text: <input type="text" data-ng-model="ace.text" />
 
-			<div data-ace="" read-only='false' mode='markdown' theme='monokai' class="editor" text="text"></div>
+			<p>text: {{ace.text}}</p>
+			<p>readOnly: {{ace.isReadOnly}}</p>
+			<input type="radio" ng-model="ace.isReadOnly" ng-value="true">True
+			<input type="radio" ng-model="ace.isReadOnly" ng-value="false">False
+
+			<div data-ace="" read-only='ace.isReadOnly' mode='markdown' theme='monokai' class="editor" text="ace.text"></div>
 
 		</div>
 

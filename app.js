@@ -3,8 +3,12 @@
 
 
     app.controller('MainCtrl', function($scope){
-    	$scope.text = 'Hello from *Angular*';
-        $scope.isReadOnly = true;
+
+        $scope.ace = {
+            text : 'Hello from *Angular*',
+            isReadOnly : false
+        };
+
     });
 
     app.directive('ace', function($timeout){
@@ -24,6 +28,10 @@
                 editor.setReadOnly(scope.readOnly);
                 editor.setValue(scope.text);
 
+                // ------------------------------------
+                //            text
+                // ------------------------------------
+                // Update the binding when the UI changes 
                 editor.on('change', function(e){
                     console.log('change event triggered')
                     $timeout(function() { 
@@ -33,13 +41,19 @@
                     });
 
                 });
-
+                // Update the UI when the binding changes
                 scope.$watch('text', function(newValue, oldValue){
                     editor.setValue(newValue);
                     editor.clearSelection();
                 });
 
 
+                // ------------------------------------
+                //            readOnly
+                // ------------------------------------
+                scope.$watch('readOnly', function(newValue, oldValue){
+                        editor.setReadOnly(newValue);
+                });
     		}
     	};
     });

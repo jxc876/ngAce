@@ -10,14 +10,16 @@
     app.directive('ace', function(){
     	return {
             scope: {
+                theme : '@',
+                mode : '@',
                 readOnly: '='
             },
     		restrict: 'A',
     		link: function(scope, elem, attrs){
     			var node = elem[0];
     			var editor = ace.edit(node);
-    			editor.setTheme("ace/theme/monokai");
-    			editor.getSession().setMode("ace/mode/markdown");
+    			editor.setTheme("ace/theme/" + scope.theme);
+    			editor.getSession().setMode("ace/mode/" + scope.mode);
                 editor.setReadOnly(scope.readOnly);
     		}
     	};

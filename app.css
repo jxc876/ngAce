@@ -8,6 +8,6 @@
 
 .highlighted-row {
 	position: absolute;
-	background: #A8DAA8;
+	background: #A8DAA8; 
 	z-index: 20;
 }

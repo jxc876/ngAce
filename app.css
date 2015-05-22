@@ -5,3 +5,9 @@
     min-height: 200px;
     border: 1px solid blue;
 }
+
+.highlighted-row {
+	position: absolute;
+	background: #A8DAA8;
+	z-index: 20;
+}

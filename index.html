@@ -9,12 +9,23 @@
 		<div data-ng-controller="MainCtrl">
 			text: <input type="text" data-ng-model="ace.text" />
 
+			<ul>
+				<li><input type="button" ng-click="addAnnotation(2)" value="add annotation"/></li>
+				<li>
+					<input type="text" ng-model="newMarkedLine" />
+					<input type="button" ng-click="markLine()" value="mark line"/>
+					<input type="button" ng-click="ace.markedLines = []" value="clear marked lines"/>
+				</li>
+			</ul>
+			
 			<p>text: {{ace.text}}</p>
 			<p>readOnly: {{ace.isReadOnly}}</p>
+
+
 			<input type="radio" ng-model="ace.isReadOnly" ng-value="true">True
 			<input type="radio" ng-model="ace.isReadOnly" ng-value="false">False
 
-			<div data-ace="" read-only='ace.isReadOnly' mode='markdown' theme='monokai' class="editor" text="ace.text"></div>
+			<div ace="" ace-config='ace' mode='markdown' theme='monokai' class="editor"></div>
 
 		</div>
 

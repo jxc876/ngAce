@@ -7,18 +7,19 @@
 		<h1>Angular Demo</h1>
 
 		<div data-ng-controller="MainCtrl">
-			text: <input type="text" data-ng-model="ace.text" />
+			<h2>Text</h2>
+			<textarea data-ng-model="ace.text" style="width: 300px; height: 100px;"></textarea>
 
+			<h2>Annotations & Marked Lines</h2>
 			<ul>
 				<li><input type="button" ng-click="addAnnotation(2)" value="add annotation"/></li>
 				<li>
-					<input type="text" ng-model="newMarkedLine" />
+					<input type="number" ng-model="newMarkedLine" min="1" />
 					<input type="button" ng-click="markLine()" value="mark line"/>
 					<input type="button" ng-click="ace.markedLines = []" value="clear marked lines"/>
 				</li>
 			</ul>
 			
-			<p>text: {{ace.text}}</p>
 			<p>readOnly: {{ace.isReadOnly}}</p>
 
 

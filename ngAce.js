@@ -27,6 +27,9 @@
             },
     		restrict: 'A',
     		link: function(scope, elem, attrs){
+
+                var markers = [];
+
     			var node = elem[0];
     			var editor = ace.edit(node);
                 editor.session.setOption("useWorker", false)
@@ -81,7 +84,6 @@
                 // ------------------------------------
                 //            markedLines
                 // ------------------------------------
-                var markers = [];
                 function clearPreviousMarkedLine(){
                     if (markers.length > 0) {
                         markers.forEach(function(item){ editor.session.removeMarker(item); });

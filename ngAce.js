@@ -16,7 +16,7 @@
     * 
     *  Set Theme & Mode while passing in configuration object
     *  ------------
-    *  <div ace="" ace-config='ace' mode='markdown' theme='monokai' class="editor"></div>
+    *  <ace ace-config='ace' mode='markdown' theme='monokai'></ace>
     */
     app.directive('ace', function($timeout){
     	return {
@@ -25,12 +25,13 @@
                 theme : '@',
                 mode : '@'
             },
-    		restrict: 'A',
+            template: '<div class="editor ng-cloak"></div>',
+    		restrict: 'E',
     		link: function(scope, elem, attrs){
 
                 var markers = [];
 
-    			var node = elem[0];
+    			var node = elem.find('div')[0];
     			var editor = ace.edit(node);
                 editor.session.setOption("useWorker", false)
     			editor.setTheme("ace/theme/" + scope.theme);

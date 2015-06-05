@@ -55,6 +55,13 @@
                     });
 
                 });
+                // Update the UI when the binding changes
+                scope.$watch('aceConfig.text', function(newValue, oldValue){
+                    editor.setValue(newValue);
+                    editor.clearSelection();
+                    editor.getSession().setAnnotations(scope.aceConfig.annotations);
+                });
+                
 
                 // ------------------------------------
                 //            readOnly

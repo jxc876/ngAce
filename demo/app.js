@@ -12,10 +12,10 @@
         };
 
         $scope.newMarkedLine = 1;
+        $scope.newBreakpoint = 2;
 
-        $scope.addAnnotation = function(_row){
-            var newAnnotation = {row: _row, column: 0,text: "Strange error",type: "error"}
-            $scope.ace.annotations.push(newAnnotation);
+        $scope.addBreakpoint = function(line){
+            $scope.ace.breakpoints.push(line);
         }
 
         $scope.markLine = function(_line){

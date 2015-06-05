@@ -3,7 +3,7 @@
 A simple wrapper around [Ace editor](http://ace.c9.io/)
 
 
-## Usage
+## Setup
 
 Inside your HTML:
 
@@ -18,11 +18,17 @@ Inside your controller:
         breakpoints: [1,3]
     };
 
-Give the directive a min-size so its contents are visible:
+Give the directive a width so its contents are visible:
 
 	.editor {
-		min-size: 300px;		
+		width: 300px;		
 	}
+
+
+## Usage
+
+Just update your model, and the directive will take care of updating the view.
+See the demo page for some examples.
 
 
 ## Customize

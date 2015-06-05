@@ -12,22 +12,27 @@
 
 			<pre>{{ace | json}}</pre>
 
-			<h2>Annotations & Marked Lines</h2>
-			<ul>
-				<li><input type="button" ng-click="addAnnotation(2)" value="add annotation"/></li>
-				<li>
-					<input type="number" ng-model="newMarkedLine" min="1" />
-					<input type="button" ng-click="markLine(newMarkedLine)" value="mark line"/>
-					<input type="button" ng-click="ace.markedLines = []" value="clear marked lines"/>
-				</li>
-			</ul>
+			<h2>Breakpoints</h2>
+			<span>
+				<input type="number" ng-model="newBreakpoint" min="1" />
+				<input type="button" ng-click="addBreakpoint(newBreakpoint)" value="add breakpoint"/>
+				<input type="button" ng-click="ace.breakpoints = []" value="clear breakpoints"/>
+			</span>
+
+			<h2>Marked Lines</h2>
+			<span>
+				<input type="number" ng-model="newMarkedLine" min="1" />
+				<input type="button" ng-click="markLine(newMarkedLine)" value="mark line"/>
+				<input type="button" ng-click="ace.markedLines = []" value="clear marked lines"/>
+			</span>
 			
+			<h2>Marked Lines</h2>
+			<input type="radio" ng-model="ace.isReadOnly" ng-value="true">True
+			<input type="radio" ng-model="ace.isReadOnly" ng-value="false">False
 			<p>readOnly: {{ace.isReadOnly}}</p>
 
 
-			<input type="radio" ng-model="ace.isReadOnly" ng-value="true">True
-			<input type="radio" ng-model="ace.isReadOnly" ng-value="false">False
-
+			<h2>Marked Lines</h2>
 			<ace ace-config='ace' mode='cobol' theme='github'></ace>
 
 		</div>
@@ -37,6 +42,6 @@
 		<script src="https://rawgit.com/ajaxorg/ace-builds/master/src/ace.js"></script>
 		<script src="https://rawgit.com/ajaxorg/ace-builds/master/src/mode-markdown.js"></script>
 		<script src="app.js"></script>
-		<script src="ngAce.js"></script>
+		<script src="../ngAce.js"></script>
 	</body>
 </html>

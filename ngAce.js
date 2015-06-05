@@ -9,7 +9,6 @@
     *  $scope.ace = {
     *    text = 'Hello from angular',
     *    isReadOnly : false,
-    *    annotations: [],
     *    markedLines: []
     *  };
     * 
@@ -30,19 +29,19 @@
     		link: function(scope, elem, attrs){
 
                 var markers = [];
-
     			var node = elem.find('div')[0];
     			var editor = ace.edit(node);
+                window.editor = editor;
                 editor.session.setOption("useWorker", false)
     			editor.setTheme("ace/theme/" + scope.theme);
     			editor.getSession().setMode("ace/mode/" + scope.mode);
                 editor.setReadOnly(scope.readOnly);
                 editor.$blockScrolling = Infinity
                 editor.setValue(scope.aceConfig.text);
-                editor.getSession().setAnnotations(scope.aceConfig.annotations);
                 scope.aceConfig.markedLines.forEach(function(line){
                     markLine(line);
                 });
+                setBreakPoints(scope.aceConfig.breakpoints);
 
                 // ------------------------------------
                 //            text
@@ -56,13 +55,6 @@
                     });
 
                 });
-                // Update the UI when the binding changes
-                scope.$watch('aceConfig.text', function(newValue, oldValue){
-                    editor.setValue(newValue);
-                    editor.clearSelection();
-                    editor.getSession().setAnnotations(scope.aceConfig.annotations);
-                });
-
 
                 // ------------------------------------
                 //            readOnly
@@ -71,13 +63,19 @@
                         editor.setReadOnly(newValue);
                 });
 
-
                 // ------------------------------------
-                //            annotations
+                //            breakpoints
                 // ------------------------------------
-                scope.$watchCollection('aceConfig.annotations', function(newValue, oldValue){
+                function setBreakPoints(breakpoints){
+                    editor.session.clearBreakpoints();  
+                    breakpoints.forEach(function(breakpoint){
+                        editor.session.setBreakpoint(breakpoint - 1);
+                    });
+                    editor.clearSelection();
+                }
+                scope.$watchCollection('aceConfig.breakpoints', function(newValue, oldValue){
                     $timeout(function(){
-                        editor.getSession().setAnnotations(scope.aceConfig.annotations);
+                        setBreakPoints(newValue);
                     }); 
                 });
 

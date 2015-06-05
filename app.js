@@ -5,10 +5,10 @@
     app.controller('MainCtrl', function($scope){
 
         $scope.ace = {
-            text : 'Hello from *Angular*',
-            isReadOnly : false,
-            annotations: [{row: 0, column: 0,text: "Strange error",type: "error"}],
-            markedLines : []
+            text : 'Hello from *Angular*\n Hello Again\n Goodybe World',
+            isReadOnly : true,
+            markedLines : [2],
+            breakpoints: [1,3]
         };
 
         $scope.newMarkedLine = 1;

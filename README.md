@@ -24,11 +24,13 @@ Give the directive a width so its contents are visible:
 		width: 300px;		
 	}
 
+![Screenshot](demo/screenshot.png)
+
 
 ## Usage
 
 Just update your model, and the directive will take care of updating the view.
-See the demo page for some examples.
+See the [demo page](https://rawgit.com/jxc876/ngAce/master/demo/index.html) for some examples.
 
 
 ## Customize

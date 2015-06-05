@@ -5,30 +5,43 @@ A simple wrapper around [Ace editor](http://ace.c9.io/)
 
 ## Setup
 
-Inside your HTML:
+Inside your HTML, load the script and use the directive:
 
 ```html
-    <ace ace-config='ace' mode='cobol' theme='github'></ace>
+<script src="ngAce.js"></script>
+
+<ace ace-config='ace' mode='cobol' theme='github'></ace>
+```
+
+Inside your Angular code, add the module as a dependency and setup the model: 
+
+```javascript
+var app = angular.module('app', ['ngAce']);
 ```
 
 Inside your controller:
 
 ```javascript
-    $scope.ace = {
-        text : 'Hello from *Angular*\n Hello Again\n Goodybe World',
-        isReadOnly : true,
-        markedLines : [2],
-        breakpoints: [1,3]
-    };
+$scope.ace = {
+    text : 'Hello from *Angular*\n Hello Again\n Goodybe World',
+    isReadOnly : true,
+    markedLines : [2],
+    breakpoints: [1,3]
+};
 ````
 
-Give the directive a width so its contents are visible:
+Finally, give the directive a width so its contents are visible:
 
 ```css
-	.editor {
-		width: 300px;		
-	}
+.editor {
+	width: 300px;		
+}
 ```
+
+If you want the built in styles, include the demo css and its related image files.
+
+
+Result: 
 
 ![Screenshot](demo/screenshot.png)
 

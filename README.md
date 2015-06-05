@@ -7,22 +7,28 @@ A simple wrapper around [Ace editor](http://ace.c9.io/)
 
 Inside your HTML:
 
+```html
     <ace ace-config='ace' mode='cobol' theme='github'></ace>
+```
 
 Inside your controller:
 
+```javascript
     $scope.ace = {
         text : 'Hello from *Angular*\n Hello Again\n Goodybe World',
         isReadOnly : true,
         markedLines : [2],
         breakpoints: [1,3]
     };
+````
 
 Give the directive a width so its contents are visible:
 
+```css
 	.editor {
 		width: 300px;		
 	}
+```
 
 ![Screenshot](demo/screenshot.png)
 

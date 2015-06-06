@@ -1,0 +1,23 @@
+{
+  "name": "ngAce",
+  "main": "ngAce.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jxc876/ngAce",
+  "authors": [
+    "jxc876 <jxc876@gmail.com>"
+  ],
+  "description": "A simple wrapper around ace editor",
+  "keywords": [
+    "Angular",
+    "Ace",
+    "Editor"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

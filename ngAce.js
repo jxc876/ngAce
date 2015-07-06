@@ -9,7 +9,8 @@
     *  $scope.ace = {
     *    text = 'Hello from angular',
     *    isReadOnly : false,
-    *    markedLines: []
+    *    markedLines: [],
+    *    focusedLine: 1
     *  };
     * 
     * 
@@ -43,6 +44,7 @@
                 });
                 setBreakPoints(scope.aceConfig.breakpoints);
 
+
                 // ------------------------------------
                 //            text
                 // ------------------------------------
@@ -60,6 +62,14 @@
                     editor.setValue(newValue);
                     editor.clearSelection();
                     editor.getSession().setAnnotations(scope.aceConfig.annotations);
+                });
+
+                // ------------------------------------
+                //            focusedLine
+                // ------------------------------------
+                // Update the UI when the binding changes
+                scope.$watch('aceConfig.focusedLine', function(newValue, oldValue){
+                    editor.gotoLine(newValue);
                 });
                 
 

@@ -8,7 +8,8 @@
             text : 'Hello from *Angular*\n Hello Again\n Goodybe World',
             isReadOnly : true,
             markedLines : [2],
-            breakpoints: [1,3]
+            breakpoints: [1,3],
+            focusedLine: 1
         };
 
         $scope.newMarkedLine = 1;

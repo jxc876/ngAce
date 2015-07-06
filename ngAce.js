@@ -69,7 +69,7 @@
                 // ------------------------------------
                 // Update the UI when the binding changes
                 scope.$watch('aceConfig.focusedLine', function(newValue, oldValue){
-                    editor.gotoLine(newValue);
+                    editor.scrollToLine(newValue, true);
                 });
                 
 
